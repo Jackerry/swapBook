@@ -36,14 +36,24 @@ public class Utils {
     }
 
     static String getPath(String str){
-        String s = Utils.getString(str,"/.*?\\?");
-        s = s.substring(1,s.length()-1);
+        String firstLine = Utils.getString(str,".*?\n");
+        String s;
+        if(firstLine.contains("?"))
+            s = Utils.getString(firstLine,"/.*?\\?");
+        else {
+            s = Utils.getString(firstLine, "/.*? ");
+        }
+        if(s.length()>1)s = s.substring(1, s.length() - 1);
         return  s;
     }
 
     static String[] getParas(String str){
-        String s = Utils.getString(str,"\\?.*? ");
-        s = s.substring(1,s.length()-1);
+        String firstLine = Utils.getString(str,".*?\n");
+        String s = "";
+        if(firstLine.contains("?")) {
+            s = Utils.getString(firstLine, "\\?.*? ");
+            s = s.substring(1, s.length() - 1);
+        }
         return  s.split("&");
     }
 
