@@ -17,13 +17,11 @@ public class ParseJson {
 
     }
 
-
-
     public static void main(String[] argv){
         String jsonStr = "{\"address\":[\"a\",\"b\"],\"age\":\"23\",\"name\":\"JSON\"}";
         JSONObject jsonObject = JSONObject.fromObject(jsonStr);
-        System.out.println(jsonObject.get("address2"));
-
+        Object te = jsonObject.get("");
+        System.out.println(te);
         int[] a = {1,2,3,4};
         JSONObject jsonObj = new JSONObject();
         jsonObj.put("id", 1);

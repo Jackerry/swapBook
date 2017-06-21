@@ -18,7 +18,7 @@ public class Server {
     public static void main(String [] args)
     {
         try {
-            ServerSocket serverSocket = new ServerSocket(80);
+            ServerSocket serverSocket = new ServerSocket(8080);
             ExecutorService fixedThreadPool = Executors.newFixedThreadPool(maxThreadNum);
             while(true){
                 Socket socket = serverSocket.accept();

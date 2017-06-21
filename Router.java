@@ -1,3 +1,8 @@
+import API.GetUserInfo;
+import API.Login;
+import API.Register;
+import tools.Utils;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -16,8 +21,10 @@ public class Router extends Thread {
             str = Utils.streamToString(client.getInputStream());
             String path = Utils.getPath(str);
             String[] paras = Utils.getParas(str);
-            if(path == "login"){new API.Login(client,paras).execute();}
-
+            System.out.println("Success connected");
+            if(path.equals("login")){new Login(client,paras).execute();}
+            else if(path.equals("register")){new Register(client,paras).execute();}
+            else if(path.equals("getUserInfo")){new GetUserInfo(client,paras).execute();}
         }
         catch(IOException IOE){
             IOE.printStackTrace();

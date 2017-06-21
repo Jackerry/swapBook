@@ -26,20 +26,14 @@ public class MySQLDemo {
             System.out.println(" 实例化Statement对...");
             stmt = conn.createStatement();
             String sql;
-            sql = "SELECT id, name, url FROM websites";
+            sql = " tables;show";
             ResultSet rs = stmt.executeQuery(sql);
             // 展开结果集数据库
             while(rs.next()){
                 // 通过字段检索
-                int id  = rs.getInt("id");
-                String name = rs.getString("name");
-                String url = rs.getString("url");
+                String Tables_in_test = rs.getString("Tables_in_test");
 
                 // 输出数据
-                System.out.print("ID: " + id);
-                System.out.print(", 站点名称: " + name);
-                System.out.print(", 站点 URL: " + url);
-                System.out.print("\n");
             }
             // 完成后关闭
             rs.close();

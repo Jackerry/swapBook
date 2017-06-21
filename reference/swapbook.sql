@@ -35,7 +35,7 @@ CREATE TABLE `booklist` (
   `author` varchar(50) ,
   `publisher` varchar(50) ,
   `image` varchar(300) ,
-  `mumber` varchar(20) NOT NULL DEFAULT '0',
+  `number` varchar(20) NOT NULL DEFAULT '0',
   `swapedNum` varchar(20) NOT NULL DEFAULT '0',
   `createAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
